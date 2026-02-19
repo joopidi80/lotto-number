@@ -1,47 +1,50 @@
-:root {
-    --background-color-light: #FFFFFF;
-    --text-color-light: #000000;
-    --border-color-light: #000000;
-
-    --background-color-dark: #000000;
-    --text-color-dark: #FFFFFF;
-    --border-color-dark: #FFFFFF;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
+    background-color: #f0f0f0;
     transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-    --background-color-light: var(--background-color-dark);
-    --text-color-light: var(--text-color-dark);
-    --border-color-light: var(--border-color-dark);
+    background-color: #333;
+    color: #fff;
 }
 
 .container {
     text-align: center;
-    padding: 40px;
-    width: 100%;
+    width: 90%;
     max-width: 800px;
-    margin: 0 auto;
-    box-sizing: border-box;
+    margin: auto;
 }
 
 .header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    position: relative; /* 로고 위치 조정을 위해 추가 */
+}
+
+.header-logo {
+    position: absolute;
+    top: -50px; /* 헤더 위로 올림 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* 로고 크기 */
+    height: auto;
+}
+
+.dark-mode .header-logo {
+    filter: invert(1);
 }
 
 .title-block {
+    flex-grow: 1; /* 제목이 중앙을 차지하도록 함 */
     text-align: center;
-    margin-bottom: 15px;
 }
 
 h1 {
@@ -49,62 +52,108 @@ h1 {
     font-size: 2.5em;
 }
 
+.theme-switch-container {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch-wrapper {
+    margin: 0 10px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.button-group {
+    margin-bottom: 20px;
+}
+
+.glow-button {
+    background: linear-gradient(45deg, #FF6EC4, #7873F5);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 0 10px;
+}
+
+.glow-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-text {
+    background: -webkit-linear-gradient(45deg, #EE9CA7, #FFDDE1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .numbers-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 15px;
 }
 
 .number-row {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.glow-button {
-    background-color: transparent;
-    border: 2px solid var(--border-color-light);
-    border-radius: 9999px;
-    padding: 16px 32px;
-    color: var(--text-color-light);
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.glow-button:hover {
-    background-color: var(--text-color-light);
-    color: var(--background-color-light);
-}
-
-.theme-switch-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
-    margin-top: 20px;
 }
-
-.theme-switch-wrapper { display: flex; align-items: center; }
-.theme-switch { display: inline-block; height: 34px; position: relative; width: 60px; }
-.theme-switch input { display: none; }
-.slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; }
-.slider:before { background-color: #fff; bottom: 4px; content: ""; height: 26px; left: 4px; position: absolute; transition: .4s; width: 26px; }
-input:checked + .slider { background-color: #000000; }
-body.dark-mode input:checked + .slider { background-color: #FFFFFF; }
-input:checked + .slider:before { transform: translateX(26px); }
-.slider.round { border-radius: 34px; }
-.slider.round:before { border-radius: 50%; }
