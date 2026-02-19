@@ -5,7 +5,13 @@ class LottoBall extends HTMLElement {
     }
 
     connectedCallback() {
+        this.render();
+    }
+
+    render() {
         const shadow = this.shadowRoot;
+        shadow.innerHTML = ''; // 다시 렌더링하기 전에 기존 내용을 지웁니다.
+
         const number = this.getAttribute('number');
         const isDarkMode = document.body.classList.contains('dark-mode');
 
@@ -32,9 +38,10 @@ const numbersContainer = document.querySelector('.numbers-container');
 const generateBtn = document.getElementById('generate-numbers-btn');
 
 function generateLottoNumbers() {
-    let generatedNumbers = new Set();
-    numbersContainer.innerHTML = ''; 
+    const numberRow = document.createElement('div');
+    numberRow.classList.add('number-row');
 
+    let generatedNumbers = new Set();
     while(generatedNumbers.size < 5) {
         generatedNumbers.add(Math.floor(Math.random() * 45) + 1);
     }
@@ -42,8 +49,10 @@ function generateLottoNumbers() {
     generatedNumbers.forEach(number => {
         const lottoBall = document.createElement('lotto-ball');
         lottoBall.setAttribute('number', number);
-        numbersContainer.appendChild(lottoBall);
+        numberRow.appendChild(lottoBall);
     });
+
+    numbersContainer.appendChild(numberRow);
 }
 
 generateBtn.addEventListener('click', generateLottoNumbers);
@@ -51,8 +60,9 @@ generateBtn.addEventListener('click', generateLottoNumbers);
 const themeSwitch = document.getElementById('checkbox');
 themeSwitch.addEventListener('change', () => {
     document.body.classList.toggle('dark-mode');
-    // 테마 변경 시, 생성되어 있는 로또 볼들의 색상을 다시 렌더링하기 위해 함수 호출
-    if (numbersContainer.hasChildNodes()) {
-        generateLottoNumbers();
-    }
+    
+    // 모든 lotto-ball 요소들을 찾아서 다시 렌더링합니다.
+    document.querySelectorAll('lotto-ball').forEach(ball => {
+        ball.render();
+    });
 });
