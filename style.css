@@ -36,10 +36,20 @@ body {
     background-color: #f00;
     transform-origin: 100% 100%;
     clip-path: polygon(0 0, 100% 0, 100% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+    font-size: 18px;
+    color: #fff;
 }
 
 .segment:nth-child(odd) {
     background-color: #ff0;
+}
+
+.prize {
+    transform: rotate(22.5deg);
 }
 
 .spin-pointer {
