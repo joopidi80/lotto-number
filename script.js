@@ -20,6 +20,16 @@ for (let i = 0; i < segments; i++) {
 }
 
 spinBtn.addEventListener('click', () => {
-    const randomRotation = Math.floor(Math.random() * 360) + 720; // Spin at least twice
+    const randomRotation = Math.floor(Math.random() * 360) + 3600; // Spin at least 10 times
     wheel.style.transform = `rotate(${randomRotation}deg)`;
+
+    wheel.addEventListener('transitionend', () => {
+        const finalRotation = randomRotation % 360;
+        const winningSegmentIndex = Math.floor((360 - finalRotation + segmentAngle / 2) % 360 / segmentAngle);
+        const winningPrize = prizes[winningSegmentIndex];
+
+        if (winningPrize === "커피1잔") {
+            alert("축하합니다!");
+        }
+    }, { once: true });
 });
