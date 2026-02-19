@@ -3,47 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
+    <title>FrankenFigs</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&display=swap">
 </head>
 <body>
     <div class="mobile-view">
-        <header class="chat-header">
-            <div class="back-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            </div>
-            <div class="user-info">
-                <img src="https://i.pravatar.cc/40?u=a042581f4e29026704d" alt="Avatar" class="avatar">
-                <span class="username">Gemini</span>
-            </div>
-            <div class="more-options">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-            </div>
+        <header class="app-header">
+            <h1>FrankenFigs</h1>
         </header>
-        <main class="chat-messages">
-            <div class="message received">
-                <p>안녕하세요! 무엇을 도와드릴까요?</p>
-                <span class="timestamp">오후 2:30</span>
+        <main class="app-content">
+            <div class="fig-card">
+                <img src="https://monster-walk.com/wp-content/uploads/2020/09/frankenstein-vector-2-450x450.jpg" alt="FrankenFig 1">
+                <h2>Franken-Berry</h2>
+                <p>A sweet but monstrous creation.</p>
             </div>
-            <div class="message sent">
-                <p>Figma 디자인을 HTML로 옮겨주세요.</p>
-                <span class="timestamp">오후 2:31</span>
-            </div>
-             <div class="message received">
-                <p>알겠습니다. 피그마 링크를 주시겠어요?</p>
-                <span class="timestamp">오후 2:32</span>
+            <div class="fig-card">
+                <img src="https://image.spreadshirtmedia.com/image-server/v1/mp/products/T1459A839PA4459PT28D1039575839W7141H10000/views/1,width=378,height=378,appearanceId=839,backgroundColor=F2F2F2,version=1683800681/frankenstein-monster-sticker.jpg" alt="FrankenFig 2">
+                <h2>Figgor</h2>
+                <p>He's got his eye on you.</p>
             </div>
         </main>
-        <footer class="chat-input-area">
-            <div class="input-wrapper">
-                 <svg class="attach-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
-                <input type="text" placeholder="메시지 입력...">
-                 <svg class="smiley-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-            </div>
-            <button class="send-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
-        </footer>
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                <span>Figs</span>
+            </a>
+            <a href="#" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Profile</span>
+            </a>
+        </nav>
     </div>
 </body>
 </html>
