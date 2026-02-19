@@ -1,11 +1,11 @@
 :root {
-    --background-color-light: #F5F5DC;
-    --text-color-light: #333;
-    --container-bg-light: rgba(255, 255, 255, 0.9);
+    --background-color-light: #FFFFFF;
+    --text-color-light: #000000;
+    --border-color-light: #000000;
 
-    --background-color-dark: #333;
-    --text-color-dark: #f0f0f0;
-    --container-bg-dark: rgba(0, 0, 0, 0.6);
+    --background-color-dark: #000000;
+    --text-color-dark: #FFFFFF;
+    --border-color-dark: #FFFFFF;
 }
 
 body {
@@ -23,16 +23,13 @@ body {
 body.dark-mode {
     --background-color-light: var(--background-color-dark);
     --text-color-light: var(--text-color-dark);
-    --container-bg-light: var(--container-bg-dark);
+    --border-color-light: var(--border-color-dark);
 }
 
 .container {
     text-align: center;
     padding: 40px;
     border-radius: 15px;
-    background-color: var(--container-bg-light);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transition: background-color 0.3s;
 }
 
 .header {
@@ -69,32 +66,21 @@ h1 {
 }
 
 .glow-button {
-    position: relative;
-    padding: 16px 32px;
-    background: linear-gradient(black, black) padding-box,
-                linear-gradient(90deg, #f97316, #a855f7, #3b82f6, #22c55e, #f97316) border-box;
-    background-size: 300% 100%;
-    border: 2px solid transparent;
+    background-color: transparent;
+    border: 2px solid var(--border-color-light);
     border-radius: 9999px;
-    color: white;
+    padding: 16px 32px;
+    color: var(--text-color-light);
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    transition: all 0.5s ease-out;
-    animation: gradient-shift 3s ease infinite;
     cursor: pointer;
-    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .glow-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.glow-button .btn-text {
-    position: relative;
-    z-index: 10;
+    background-color: var(--text-color-light);
+    color: var(--background-color-light);
 }
 
 .theme-switch-container {
@@ -110,19 +96,8 @@ h1 {
 .theme-switch input { display: none; }
 .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; }
 .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 26px; left: 4px; position: absolute; transition: .4s; width: 26px; }
-input:checked + .slider { background-color: #2196F3; }
+input:checked + .slider { background-color: #000000; }
+body.dark-mode input:checked + .slider { background-color: #FFFFFF; }
 input:checked + .slider:before { transform: translateX(26px); }
 .slider.round { border-radius: 34px; }
 .slider.round:before { border-radius: 50%; }
-
-@keyframes gradient-shift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
