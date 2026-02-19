@@ -31,6 +31,7 @@ body {
     height: 100%;
     border-radius: 50%;
     border: 5px solid #fff;
+    transform: rotate(0deg); /* Explicitly set initial rotation */
     transition: transform 10s ease-out;
     background: conic-gradient(
         #DDDDDD 0deg 45deg,
@@ -52,14 +53,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px; /* Adjusted font size */
-    text-align: center; /* Center the text */
+    font-size: 12px; /* Adjusted font size */
+    text-align: center;
 }
 
 .prize {
-    transform: rotate(22.5deg);
-    white-space: normal; /* Allow text to wrap */
-    max-width: 80%; /* Limit text width */
+    white-space: normal;
+    max-width: 80%;
 }
 
 .light-text {
