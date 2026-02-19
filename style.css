@@ -33,19 +33,20 @@ body {
     position: absolute;
     width: 50%;
     height: 50%;
-    background-color: #f00;
+    background-color: #444444;
     transform-origin: 100% 100%;
     clip-path: polygon(0 0, 100% 0, 100% 100%);
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 40px;
     font-size: 18px;
     color: #fff;
 }
 
 .segment:nth-child(odd) {
-    background-color: #ff0;
+    background-color: #DDDDDD;
+    color: #000;
 }
 
 .prize {
