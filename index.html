@@ -1,39 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 1등 생성기</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/circletype/2.3.0/circletype.min.js"></script>
+<meta charset="UTF-8">
+<title>3D 팽창 우주</title>
+<style>
+body { margin: 0; overflow: hidden; background: black; }
+canvas { display: block; }
+</style>
 </head>
-<body class="dark-mode">
-    <div class="container">
-        <img src="rogo.png" alt="배경 로고" class="background-logo">
-        <div class="header">
-            <div class="title-block">
-                <h1 class="arched-title">로또 1등 생성기</h1>
-            </div>
-        </div>
-        <div class="button-group">
-            <button class="glow-button" id="generate-numbers-btn"><span class="btn-text">행운 번호 뽑기</span></button>
-            <button class="glow-button" id="show-song-btn"><span class="btn-text">이번주 좋은 노래추천</span></button>
-        </div>
-        <div class="theme-switch-container">
-            <span>라이트 모드</span>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" checked />
-                    <div class="slider round"></div>
-                </label>
-            </div>
-            <span>다크 모드</span>
-        </div>
-        <div class="numbers-container"></div>
-        <div id="song-container" style="display: none; margin-top: 30px;">
-            <iframe width="315" height="560" src="https://www.youtube.com/embed/M0_FQoQf-mc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-    </div>
-    <script src="main.js"></script>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+let scene, camera, renderer;
+let stars = [];
+let bigBangPower = 0;
+
+init();
+animate();
+
+function init() {
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        2000
+    );
+    camera.position.z = 5;
+
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // 🌌 Nebula 배경
+    const nebulaTexture = new THREE.TextureLoader().load(
+        "https://threejs.org/examples/textures/nebula.jpg"
+    );
+    const nebulaGeometry = new THREE.SphereGeometry(1000, 64, 64);
+    const nebulaMaterial = new THREE.MeshBasicMaterial({
+        map: nebulaTexture,
+        side: THREE.BackSide
+    });
+    const nebula = new THREE.Mesh(nebulaGeometry, nebulaMaterial);
+    scene.add(nebula);
+
+    // ⭐ 별 생성
+    const starGeometry = new THREE.SphereGeometry(0.05, 8, 8);
+
+    for (let i = 0; i < 1500; i++) {
+        const material = new THREE.MeshBasicMaterial({
+            color: new THREE.Color(`hsl(${Math.random()*360},100%,80%)`)
+        });
+
+        const star = new THREE.Mesh(starGeometry, material);
+
+        star.position.set(0, 0, 0);
+        star.userData = {
+            direction: new THREE.Vector3(
+                (Math.random()-0.5),
+                (Math.random()-0.5),
+                (Math.random()-0.5)
+            ).normalize(),
+            speed: Math.random() * 0.02 + 0.01
+        };
+
+        scene.add(star);
+        stars.push(star);
+    }
+
+    window.addEventListener("click", () => {
+        bigBangPower = 0.3; // 빅뱅 가속
+    });
+
+    window.addEventListener("resize", onResize);
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    stars.forEach(star => {
+
+        // 빅뱅 가속 감소
+        let speedBoost = bigBangPower;
+
+        star.position.add(
+            star.userData.direction.clone().multiplyScalar(star.userData.speed + speedBoost)
+        );
+
+        // 점점 커지는 효과
+        star.scale.multiplyScalar(1.002);
+
+        // 색 변화 (은하 효과)
+        let hue = (Date.now() * 0.02) % 360;
+        star.material.color.setHSL(hue/360, 1, 0.7);
+
+        // 너무 멀어지면 리셋
+        if (star.position.length() > 200) {
+            star.position.set(0,0,0);
+            star.scale.set(1,1,1);
+        }
+    });
+
+    bigBangPower *= 0.95; // 점점 감소
+
+    renderer.render(scene, camera);
+}
+
+function onResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+</script>
+
 </body>
 </html>
