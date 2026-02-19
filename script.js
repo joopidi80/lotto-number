@@ -3,7 +3,7 @@ const spinBtn = document.querySelector('.spin-button');
 
 const segments = 8;
 const segmentAngle = 360 / segments;
-const prizes = ["커피1잔", "꽝", "커피1잔", "꽝", "커피1잔", "꽝", "커피1잔", "꽝"];
+const prizes = ["한잔더!", "꽝~다음기회에", "한잔더!", "꽝~다음기회에", "한잔더!", "꽝~다음기회에", "한잔더!", "꽝~다음기회에"];
 
 for (let i = 0; i < segments; i++) {
     const segment = document.createElement('div');
@@ -42,7 +42,7 @@ spinBtn.addEventListener('click', () => {
         const winningSegmentIndex = Math.floor((360 - finalRotation + segmentAngle / 2) % 360 / segmentAngle);
         const winningPrize = prizes[winningSegmentIndex];
 
-        if (winningPrize === "커피1잔") {
+        if (winningPrize === "한잔더!") {
             alert("축하합니다!");
         }
     }, { once: true });

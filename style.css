@@ -52,11 +52,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 14px; /* Adjusted font size */
+    text-align: center; /* Center the text */
 }
 
 .prize {
     transform: rotate(22.5deg);
+    white-space: normal; /* Allow text to wrap */
+    max-width: 80%; /* Limit text width */
 }
 
 .light-text {
