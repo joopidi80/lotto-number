@@ -151,3 +151,39 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+/* Contact Form Styles */
+.contact-form-container {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.contact-form-container h2 {
+    margin-bottom: 20px;
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.contact-form-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg-light);
+    color: var(--button-text-light);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
