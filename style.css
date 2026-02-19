@@ -47,10 +47,6 @@ body.dark-mode {
     letter-spacing: 2px; /* 글자 간격 조절 */
 }
 
-.arched-title span {
-    display: inline-block; /* 아치 효과를 위해 */
-}
-
 .button-group {
     margin-bottom: 20px;
 }
