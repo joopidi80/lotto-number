@@ -70,7 +70,7 @@ body.dark-mode {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.btn-text {
+.glow-button .btn-text {
     background: -webkit-linear-gradient(45deg, #EE9CA7, #FFDDE1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -148,10 +148,16 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-top: 30px;
 }
 
 .number-row {
     display: flex;
     justify-content: center;
     gap: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
