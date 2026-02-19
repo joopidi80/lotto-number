@@ -32,15 +32,20 @@ body.dark-mode {
     --button-text-light: var(--button-text-dark);
 }
 
+body.dark-mode .background-text {
+    color: rgba(255, 255, 255, 0.08);
+}
+
 .background-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 5vw;
-    color: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.08);
     white-space: nowrap;
     z-index: -1;
+    transition: color 0.3s;
 }
 
 .container {
