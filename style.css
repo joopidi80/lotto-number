@@ -19,6 +19,18 @@ body.dark-mode {
     width: 90%;
     max-width: 800px;
     margin: auto;
+    position: relative; /* 자식 요소의 position: absolute; 기준 */
+    z-index: 1; /* 내용이 로고 위에 오도록 함 */
+}
+
+.background-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* 로고 크기 조절 */
+    opacity: 0.1; /* 로고 투명도 조절 */
+    z-index: -1; /* 로고가 내용 뒤에 오도록 함 */
 }
 
 .header {
@@ -26,24 +38,10 @@ body.dark-mode {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    position: relative; /* 로고 위치 조정을 위해 추가 */
-}
-
-.header-logo {
-    position: absolute;
-    top: -50px; /* 헤더 위로 올림 */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px; /* 로고 크기 */
-    height: auto;
-}
-
-.dark-mode .header-logo {
-    filter: invert(1);
 }
 
 .title-block {
-    flex-grow: 1; /* 제목이 중앙을 차지하도록 함 */
+    flex-grow: 1; 
     text-align: center;
 }
 
