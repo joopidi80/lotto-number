@@ -58,7 +58,7 @@ body.dark-mode .subtitle {
     text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Add shadow for readability */
 }
 
-h1, .subtitle {
+h1 {
     color: #fff; /* Default title color to white */
 }
 
@@ -80,11 +80,6 @@ h1 {
     font-size: 2.5em;
 }
 
-.subtitle {
-    margin: 5px 0 0 0;
-    font-size: 1.2em;
-}
-
 .numbers-container {
     display: flex;
     justify-content: center;
@@ -96,6 +91,7 @@ h1 {
 .button-group {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap */
     gap: 20px;
     margin-top: 30px;
 }
@@ -116,6 +112,10 @@ h1 {
     transition: all 0.5s ease-out;
     animation: gradient-shift 3s ease infinite;
     cursor: pointer;
+}
+
+a.glow-button {
+    text-decoration: none;
 }
 
 .glow-button:hover {
