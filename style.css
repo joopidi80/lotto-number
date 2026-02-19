@@ -1,11 +1,11 @@
 :root {
-    --background-color-light: #f0f0f0;
+    --background-color-light: #F5F5DC;
     --text-color-light: #333;
-    --container-bg-light: #fff;
+    --container-bg-light: rgba(255, 255, 255, 0.9);
 
     --background-color-dark: #333;
     --text-color-dark: #f0f0f0;
-    --container-bg-dark: #444;
+    --container-bg-dark: rgba(0, 0, 0, 0.6);
 }
 
 @keyframes gradient-shift {
@@ -36,6 +36,11 @@ body.dark-mode {
     --background-color-light: var(--background-color-dark);
     --text-color-light: var(--text-color-dark);
     --container-bg-light: var(--container-bg-dark);
+}
+
+body.dark-mode h1,
+body.dark-mode .subtitle {
+    color: #000;
 }
 
 .container {
