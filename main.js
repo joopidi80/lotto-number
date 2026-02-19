@@ -38,16 +38,36 @@ class LottoBall extends HTMLElement {
 
 customElements.define('lotto-ball', LottoBall);
 
-document.getElementById('generate-btn').addEventListener('click', () => {
-    const numbersContainer = document.querySelector('.numbers-container');
-    numbersContainer.innerHTML = ''; // 이전 번호 삭제
+const numbersContainer = document.querySelector('.numbers-container');
+let generatedNumbers = new Set();
 
-    const numbers = new Set();
-    while(numbers.size < 6) {
-        numbers.add(Math.floor(Math.random() * 45) + 1);
+document.getElementById('generate-one-btn').addEventListener('click', () => {
+    if (generatedNumbers.size >= 6) {
+        generatedNumbers.clear();
+        numbersContainer.innerHTML = '';
     }
 
-    numbers.forEach(number => {
+    let newNumber;
+    do {
+        newNumber = Math.floor(Math.random() * 45) + 1;
+    } while (generatedNumbers.has(newNumber));
+
+    generatedNumbers.add(newNumber);
+
+    const lottoBall = document.createElement('lotto-ball');
+    lottoBall.setAttribute('number', newNumber);
+    numbersContainer.appendChild(lottoBall);
+});
+
+document.getElementById('generate-all-btn').addEventListener('click', () => {
+    generatedNumbers.clear();
+    numbersContainer.innerHTML = ''; 
+
+    while(generatedNumbers.size < 6) {
+        generatedNumbers.add(Math.floor(Math.random() * 45) + 1);
+    }
+
+    generatedNumbers.forEach(number => {
         const lottoBall = document.createElement('lotto-ball');
         lottoBall.setAttribute('number', number);
         numbersContainer.appendChild(lottoBall);
