@@ -5,16 +5,30 @@ const segments = 8;
 const segmentAngle = 360 / segments;
 const prizes = ["커피1잔", "꽝", "커피1잔", "꽝", "커피1잔", "꽝", "커피1잔", "꽝"];
 
-
 for (let i = 0; i < segments; i++) {
     const segment = document.createElement('div');
     segment.classList.add('segment');
-    segment.style.transform = `rotate(${i * segmentAngle}deg)`;
-    
+
     const prizeText = document.createElement('span');
     prizeText.classList.add('prize');
     prizeText.textContent = prizes[i];
+
+    // Position the text
+    const angle = (i * segmentAngle) + (segmentAngle / 2);
+    const x = 150 + 100 * Math.cos(angle * Math.PI / 180);
+    const y = 150 + 100 * Math.sin(angle * Math.PI / 180);
     
+    segment.style.left = `${x}px`;
+    segment.style.top = `${y}px`;
+    segment.style.transform = `translate(-50%, -50%) rotate(${angle + 90}deg)`;
+
+    // Set text color based on segment color
+    if (i % 2 === 0) {
+        prizeText.classList.add('dark-text');
+    } else {
+        prizeText.classList.add('light-text');
+    }
+
     segment.appendChild(prizeText);
     wheel.appendChild(segment);
 }

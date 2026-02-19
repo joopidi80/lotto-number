@@ -32,30 +32,39 @@ body {
     border-radius: 50%;
     border: 5px solid #fff;
     transition: transform 10s ease-out;
+    background: conic-gradient(
+        #DDDDDD 0deg 45deg,
+        #444444 45deg 90deg,
+        #DDDDDD 90deg 135deg,
+        #444444 135deg 180deg,
+        #DDDDDD 180deg 225deg,
+        #444444 225deg 270deg,
+        #DDDDDD 270deg 315deg,
+        #444444 315deg 360deg
+    );
 }
 
 .segment {
     position: absolute;
     width: 50%;
     height: 50%;
-    background-color: #444444;
     transform-origin: 100% 100%;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 40px;
+    align-items: center;
     font-size: 18px;
-    color: #fff;
-}
-
-.segment:nth-child(odd) {
-    background-color: #DDDDDD;
-    color: #000;
 }
 
 .prize {
     transform: rotate(22.5deg);
+}
+
+.light-text {
+    color: #fff;
+}
+
+.dark-text {
+    color: #000;
 }
 
 .spin-pointer {
