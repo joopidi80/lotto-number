@@ -66,3 +66,14 @@ themeSwitch.addEventListener('change', () => {
         ball.render();
     });
 });
+
+const showSongBtn = document.getElementById('show-song-btn');
+const songContainer = document.getElementById('song-container');
+
+showSongBtn.addEventListener('click', () => {
+    if (songContainer.style.display === 'none') {
+        songContainer.style.display = 'block';
+    } else {
+        songContainer.style.display = 'none';
+    }
+});
