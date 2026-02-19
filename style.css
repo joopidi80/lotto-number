@@ -1,81 +1,65 @@
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #f0f2f5;
+    font-family: sans-serif;
+    background-color: #1a1a1a;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.mobile-view {
-    width: 375px;
-    height: 667px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.spin-container {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    align-items: center;
 }
 
-.app-header {
-    background-color: #fff;
-    color: #000;
-    text-align: center;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: 600;
-    border-bottom: 1px solid #e5e5e5;
+.spin-wheel-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
 }
 
-.app-content {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
+.spin-wheel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    transition: transform 4s ease-out;
 }
 
-.room-card {
-    background-color: #f0f2f5;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 20px;
-    color: #000;
+.segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #f00;
+    transform-origin: 100% 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
 }
 
-.room-card h2 {
+.segment:nth-child(odd) {
+    background-color: #ff0;
+}
+
+.spin-pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #fff;
+}
+
+.spin-button {
+    margin-top: 30px;
+    padding: 10px 20px;
     font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 5px;
-}
-
-.room-card p {
-    font-size: 14px;
-    color: #65676b;
-    margin: 0;
-}
-
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    cursor: pointer;
     background-color: #fff;
-    padding: 10px 0;
-    border-top: 1px solid #e5e5e5;
-}
-
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #65676b;
-    text-decoration: none;
-}
-
-.nav-item.active {
-    color: #000;
-}
-
-.nav-item svg {
-    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
 }
