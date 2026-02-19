@@ -122,8 +122,6 @@ h1 {
     margin-top: 20px;
 }
 
-/* ... (rest of the theme-switch styles remain the same) ... */
-
 .theme-switch-wrapper { display: flex; align-items: center; }
 .theme-switch { display: inline-block; height: 34px; position: relative; width: 60px; }
 .theme-switch input { display: none; }
