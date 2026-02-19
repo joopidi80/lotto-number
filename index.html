@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로또 1등 생성기</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/arċ.js/1.0.0/arċ.min.js"></script>
 </head>
 <body class="dark-mode">
     <div class="container">
         <img src="rogo.png" alt="배경 로고" class="background-logo">
         <div class="header">
             <div class="title-block">
-                <h1>로또 1등 생성기</h1>
-            </div>
-            <div class="theme-switch-container">
-                <span>라이트 모드</span>
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" checked />
-                        <div class="slider round"></div>
-                    </label>
-                </div>
-                <span>다크 모드</span>
+                <h1 class="arched-title">로또 1등 생성기</h1>
             </div>
         </div>
         <div class="button-group">
             <button class="glow-button" id="generate-numbers-btn"><span class="btn-text">행운 번호 뽑기</span></button>
             <button class="glow-button" id="show-song-btn"><span class="btn-text">이번주 좋은 노래추천</span></button>
+        </div>
+        <div class="theme-switch-container">
+            <span>라이트 모드</span>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" checked />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+            <span>다크 모드</span>
         </div>
         <div class="numbers-container"></div>
         <div id="song-container" style="display: none; margin-top: 30px;">

@@ -19,8 +19,8 @@ body.dark-mode {
     width: 90%;
     max-width: 800px;
     margin: auto;
-    position: relative; /* 자식 요소의 position: absolute; 기준 */
-    z-index: 1; /* 내용이 로고 위에 오도록 함 */
+    position: relative;
+    z-index: 1;
 }
 
 .background-logo {
@@ -28,31 +28,64 @@ body.dark-mode {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px; /* 로고 크기 조절 */
-    opacity: 0.1; /* 로고 투명도 조절 */
-    z-index: -1; /* 로고가 내용 뒤에 오도록 함 */
+    width: 300px;
+    opacity: 0.1;
+    z-index: -1;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
 }
 
 .title-block {
-    flex-grow: 1; 
-    text-align: center;
+    margin-bottom: 30px; /* 아치형 제목과 버튼 사이 간격 */
 }
 
-h1 {
-    margin: 0;
-    font-size: 2.5em;
+.arched-title {
+    font-size: 2em; /* 제목 폰트 크기 축소 */
+    font-weight: bold;
+    letter-spacing: 2px; /* 글자 간격 조절 */
+}
+
+.arched-title span {
+    display: inline-block; /* 아치 효과를 위해 */
+}
+
+.button-group {
+    margin-bottom: 20px;
+}
+
+.glow-button {
+    background: linear-gradient(45deg, #FF6EC4, #7873F5);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 0 10px;
+}
+
+.glow-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-text {
+    background: -webkit-linear-gradient(45deg, #EE9CA7, #FFDDE1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .theme-switch-container {
     display: flex;
+    justify-content: center; /* 중앙 정렬 */
     align-items: center;
+    margin-top: 20px; /* 버튼 그룹과 간격 */
+    margin-bottom: 20px;
 }
 
 .theme-switch-wrapper {
@@ -112,35 +145,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
-}
-
-.button-group {
-    margin-bottom: 20px;
-}
-
-.glow-button {
-    background: linear-gradient(45deg, #FF6EC4, #7873F5);
-    border: none;
-    color: white;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin: 0 10px;
-}
-
-.glow-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.btn-text {
-    background: -webkit-linear-gradient(45deg, #EE9CA7, #FFDDE1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .numbers-container {
