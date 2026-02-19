@@ -1,11 +1,8 @@
 :root {
-    --background-color-light: #F5F5DC;
-    --text-color-light: #333;
-    --container-bg-light: rgba(255, 255, 255, 0.9);
-
-    --background-color-dark: #333;
+    --text-color-light: #f0f0f0;
+    --container-bg-light: rgba(0, 0, 0, 0.4);
     --text-color-dark: #f0f0f0;
-    --container-bg-dark: rgba(0, 0, 0, 0.6);
+    --container-bg-dark: rgba(0, 0, 0, 0.7);
 }
 
 @keyframes gradient-shift {
@@ -27,20 +24,26 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: var(--background-color-light);
+    overflow: hidden; /* Prevent scrollbars from the canvas */
     color: var(--text-color-light);
-    transition: background-color 0.3s, color 0.3s;
+    background-color: #000; /* Fallback for when canvas is loading */
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place canvas behind all other content */
 }
 
 body.dark-mode {
-    --background-color-light: var(--background-color-dark);
     --text-color-light: var(--text-color-dark);
     --container-bg-light: var(--container-bg-dark);
 }
 
 body.dark-mode h1,
 body.dark-mode .subtitle {
-    color: #000;
+    color: #fff; /* Ensure title is white in dark mode */
 }
 
 .container {
@@ -48,10 +51,17 @@ body.dark-mode .subtitle {
     padding: 40px;
     border-radius: 15px;
     background-color: var(--container-bg-light);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     transition: background-color 0.3s;
-    z-index: 1;
+    z-index: 1; /* Keep container on top */
+    color: var(--text-color-light);
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Add shadow for readability */
 }
+
+h1, .subtitle {
+    color: #fff; /* Default title color to white */
+}
+
 
 .header {
     display: flex;
@@ -73,7 +83,6 @@ h1 {
 .subtitle {
     margin: 5px 0 0 0;
     font-size: 1.2em;
-    color: #666;
 }
 
 .numbers-container {
