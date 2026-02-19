@@ -39,31 +39,13 @@ class LottoBall extends HTMLElement {
 customElements.define('lotto-ball', LottoBall);
 
 const numbersContainer = document.querySelector('.numbers-container');
-let generatedNumbers = new Set();
+const generateBtn = document.getElementById('generate-numbers-btn');
 
-document.getElementById('generate-one-btn').addEventListener('click', () => {
-    if (generatedNumbers.size >= 6) {
-        generatedNumbers.clear();
-        numbersContainer.innerHTML = '';
-    }
-
-    let newNumber;
-    do {
-        newNumber = Math.floor(Math.random() * 45) + 1;
-    } while (generatedNumbers.has(newNumber));
-
-    generatedNumbers.add(newNumber);
-
-    const lottoBall = document.createElement('lotto-ball');
-    lottoBall.setAttribute('number', newNumber);
-    numbersContainer.appendChild(lottoBall);
-});
-
-document.getElementById('generate-all-btn').addEventListener('click', () => {
-    generatedNumbers.clear();
+generateBtn.addEventListener('click', () => {
+    let generatedNumbers = new Set();
     numbersContainer.innerHTML = ''; 
 
-    while(generatedNumbers.size < 6) {
+    while(generatedNumbers.size < 5) {
         generatedNumbers.add(Math.floor(Math.random() * 45) + 1);
     }
 
