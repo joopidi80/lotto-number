@@ -5,21 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const showSongBtn = document.getElementById('show-song-btn');
     const songContainer = document.getElementById('song-container');
 
-    // Arched title effect with CircleType.js
+    // 아치형 제목 효과 초기화
     const title = document.querySelector('.arched-title');
     if (title) {
         const circleType = new CircleType(title);
         circleType.radius(200).dir(-1);
     }
 
+    // 행운 번호 뽑기 버튼 이벤트 리스너
     generateBtn.addEventListener('click', () => {
         generateNumbers();
     });
 
+    // 테마 전환 스위치 이벤트 리스너
     themeSwitch.addEventListener('change', function() {
         document.body.classList.toggle('dark-mode');
     });
 
+    // 노래 추천 버튼 이벤트 리스너
     showSongBtn.addEventListener('click', function() {
         if (songContainer.style.display === 'none') {
             songContainer.style.display = 'block';
@@ -28,8 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // 로또 번호 생성 및 표시 함수
     function generateNumbers() {
-        numbersContainer.innerHTML = '';
+        numbersContainer.innerHTML = ''; // 기존 번호 삭제
         for (let i = 0; i < 5; i++) {
             const numbers = getLottoNumbers();
             const row = document.createElement('div');
@@ -39,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // 6개의 유니크한 로또 번호를 생성하는 함수
     function getLottoNumbers() {
         const numbers = new Set();
         while (numbers.size < 6) {
