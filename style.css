@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    font-family: sans-serif;
-    background-color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,22 +11,22 @@ body {
 .mobile-view {
     width: 375px;
     height: 667px;
-    background-color: #2b2b2b;
+    background-color: #fff;
     border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
 .app-header {
-    background-color: #8b0000;
-    color: #ccff00;
+    background-color: #fff;
+    color: #000;
     text-align: center;
-    padding: 15px;
-    font-family: 'Creepster', cursive;
-    font-size: 24px;
-    letter-spacing: 2px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .app-content {
@@ -35,50 +35,45 @@ body {
     overflow-y: auto;
 }
 
-.fig-card {
-    background-color: #444;
+.room-card {
+    background-color: #f0f2f5;
     border-radius: 10px;
     margin-bottom: 20px;
-    overflow: hidden;
-    color: #fff;
+    padding: 20px;
+    color: #000;
 }
 
-.fig-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.room-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 5px;
 }
 
-.fig-card h2 {
-    font-family: 'Creepster', cursive;
-    font-size: 20px;
-    margin: 10px 15px 5px;
-    color: #ccff00;
-}
-
-.fig-card p {
+.room-card p {
     font-size: 14px;
-    margin: 0 15px 15px;
+    color: #65676b;
+    margin: 0;
 }
 
 .bottom-nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #8b0000;
+    background-color: #fff;
     padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
 }
 
 .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #ccff00;
+    color: #65676b;
     text-decoration: none;
 }
 
 .nav-item.active {
-    color: #fff;
+    color: #000;
 }
 
 .nav-item svg {
