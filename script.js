@@ -1,52 +1,17 @@
-const wheel = document.querySelector('.spin-wheel');
-const spinBtn = document.querySelector('.spin-button');
+const generateBtn = document.querySelector('.generate-button');
+const lottoNumbersContainer = document.querySelector('.lotto-numbers');
 
-const segments = 8;
-const segmentAngle = 360 / segments;
-const prizes = ["한잔더!", "꽝~다음기회에", "한잔더!", "꽝~다음기회에", "한잔더!", "꽝~다음기회에", "한잔더!", "꽝~다음기회에"];
-let isSpinning = false;
-
-for (let i = 0; i < segments; i++) {
-    const segment = document.createElement('div');
-    segment.classList.add('segment');
-
-    const prizeText = document.createElement('span');
-    prizeText.classList.add('prize');
-    prizeText.textContent = prizes[i];
-
-    const angle = (i * segmentAngle) + (segmentAngle / 2);
-    const x = 150 + 100 * Math.cos(angle * Math.PI / 180);
-    const y = 150 + 100 * Math.sin(angle * Math.PI / 180);
-    
-    segment.style.left = `${x}px`;
-    segment.style.top = `${y}px`;
-    segment.style.transform = `translate(-50%, -50%) rotate(${angle + 90}deg)`;
-
-    if (i % 2 === 0) {
-        prizeText.classList.add('dark-text');
-    } else {
-        prizeText.classList.add('light-text');
+generateBtn.addEventListener('click', () => {
+    lottoNumbersContainer.innerHTML = '';
+    const lottoNumbers = new Set();
+    while (lottoNumbers.size < 6) {
+        lottoNumbers.add(Math.floor(Math.random() * 45) + 1);
     }
 
-    segment.appendChild(prizeText);
-    wheel.appendChild(segment);
-}
-
-spinBtn.addEventListener('click', () => {
-    if (isSpinning) return;
-
-    isSpinning = true;
-    const randomRotation = Math.floor(Math.random() * 360) + 3600; // Spin at least 10 times
-    wheel.style.transform = `rotate(${randomRotation}deg)`;
-
-    wheel.addEventListener('transitionend', () => {
-        isSpinning = false;
-        const finalRotation = randomRotation % 360;
-        const winningSegmentIndex = Math.floor((360 - finalRotation + segmentAngle / 2) % 360 / segmentAngle);
-        const winningPrize = prizes[winningSegmentIndex];
-
-        if (winningPrize === "한잔더!") {
-            alert("축하합니다!");
-        }
-    }, { once: true });
+    lottoNumbers.forEach(number => {
+        const numberElement = document.createElement('div');
+        numberElement.classList.add('lotto-number');
+        numberElement.textContent = number;
+        lottoNumbersContainer.appendChild(numberElement);
+    });
 });
