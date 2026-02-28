@@ -1,70 +1,45 @@
 body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-.lotto-container {
-    text-align: center;
-    padding: 40px;
-    border-radius: 15px;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 209, 255, 0.5);
-    border: 1px solid #00d1ff;
+.wheel-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
 }
 
-.lotto-container h1 {
-    color: #00d1ff;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-shadow: 0 0 10px #00d1ff;
-}
-
-.lotto-numbers {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-.lotto-number {
-    width: 60px;
-    height: 60px;
+#wheel-canvas {
     border-radius: 50%;
-    background-color: #fff;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-    font-size: 24px;
-    font-weight: bold;
-    border: 2px solid #00d1ff;
-    box-shadow: 0 0 15px rgba(0, 209, 255, 0.7);
-    transition: all 0.3s ease;
+    border: 10px solid #333;
 }
 
-.generate-button {
-    margin-top: 20px;
+.pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid red;
+}
+
+.spin-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 15px 30px;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
-    background: linear-gradient(45deg, #00d1ff, #00ffc8);
+    border-radius: 50%;
+    border: 5px solid #fff;
+    background-color: #333;
     color: #fff;
-    border: none;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-family: 'Orbitron', sans-serif;
-    box-shadow: 0 0 20px rgba(0, 209, 255, 0.5);
-    transition: all 0.3s ease;
-}
-
-.generate-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 209, 255, 0.5);
 }
